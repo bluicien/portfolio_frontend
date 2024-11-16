@@ -13,7 +13,7 @@ export default function Homepage() {
                 <h3>Welcome to my website. I am a Junior Fullstack Software Engineer based in New Zealand.</h3>
                 
                 <div className={styles.redirectLinks} >
-                    <button>About Me</button>
+                    <button className={styles.aboutmeBtn} >About Me</button>
                     <div className={styles.socialMediaBtnGroup} >
                         <Link className={styles.socialBtn} to="https://www.facebook.com/brendon.luicien" ><FaFacebook size="1rem" /></Link>
                         <Link className={styles.socialBtn} to="https://www.linkedin.com/in/bluicien-bl2" ><ImLinkedin size="1rem" /></Link>
@@ -23,6 +23,10 @@ export default function Homepage() {
             <div className={styles.noImage} >
                 NO IMAGE
             </div>
+        </section>
+
+        <section>
+            
         </section>
         
     </div>

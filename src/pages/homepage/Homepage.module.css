@@ -7,9 +7,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 80vh;
-    padding: 5vh 5vw;
-    border: 2px solid white;
+    min-height: 90vh;
+    padding: 0 5vw;
 }
 
 .intro {
@@ -37,6 +36,15 @@
     flex-direction: column;
     max-width: 180px;
     row-gap: 12px;
+}
+
+.aboutmeBtn {
+    border: 2px solid white;
+    background-color: transparent;
+}
+
+.aboutmeBtn:hover {
+    border-color: red;
 }
 
 .socialMediaBtnGroup {
