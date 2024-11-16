@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 50%;
+    height: 10vh;
+    width: 100%;
+    background-color: rgb(174, 145, 255);
+}
+
+.navGroup {
+    display: flex;
+    align-items: center;
+    column-gap: 2vw;
+}
+
+.navItem {
+    text-decoration: none;
+    color: black;
+}
