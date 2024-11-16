@@ -9,9 +9,9 @@ export default function NavBar() {
         <img  src={reactImg} alt="" />
 
         <nav className={styles.navGroup} >
-            <NavLink to={"/"} className={styles.navItem} >Home</NavLink>
-            <NavLink to={"/projects"} className={styles.navItem} >Projects</NavLink>
-            <NavLink to={"/about"} className={styles.navItem} >About Me</NavLink>
+              <NavLink className={styles.navItem} to={"/"} >Home</NavLink>
+              <NavLink className={styles.navItem} to={"/projects"} >Projects</NavLink>
+              <NavLink className={styles.navItem} to={"/about"}  >About Me</NavLink>
         </nav>
     </header>
   )
