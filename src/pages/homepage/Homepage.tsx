@@ -2,15 +2,7 @@ import styles from './Homepage.module.css';
 import { FaFacebook } from "react-icons/fa";
 import { ImLinkedin } from "react-icons/im";
 
-import { Suspense, useState } from 'react';
 import { Link } from "react-router-dom";
-
-import { Canvas } from "@react-three/fiber";
-import Loader from '../../components/loader/Loader.tsx';
-import Island from '../../models/Island.js';
-import Sky from '../../models/Sky.tsx';
-import Bird from '../../models/Bird.tsx';
-import Plane from '../../models/Plane.tsx';
 
 export default function Homepage() {
 
@@ -18,6 +10,7 @@ export default function Homepage() {
     return (
 
         <div className={styles.homepageContainer} >
+            <div className={styles.lightSource} />
             <section className={styles.contentContainer} >
                 <div className={styles.intro} >
                     <h1>Hello! My name is <span className={styles.myName} >Brendon Luicien.</span></h1>
@@ -35,11 +28,6 @@ export default function Homepage() {
                     NO IMAGE
                 </div>
             </section>
-
-
-            <section>
-            </section>
-            
         </div>
     )
 }
