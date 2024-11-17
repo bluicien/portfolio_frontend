@@ -12,6 +12,19 @@
     padding: 0 5vw;
 }
 
+.lightSource {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 30vw;
+    width: 30vw;
+    background-color: rgba(164, 229, 255, 0.466);
+    filter: blur(250px);
+    animation: growGlow 20s ease-in infinite forwards;
+    transform-origin: top right;
+    z-index: -1;
+}
+
 .intro {
     height: 50%;
     width: 50%;
@@ -22,9 +35,10 @@
 .intro  > h1 {
     font-size: 3rem;
     margin: 0;
+    line-height: normal;
 }
 
-.intro > h3 { 
+.intro > h2 { 
     font-size: 1.5rem;
 } 
 
@@ -83,23 +97,8 @@
     height: 500px;
 }
 
-
-.lightSource {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 30vw;
-    width: 30vw;
-    background-color: rgba(164, 229, 255, 0.466);
-    filter: blur(250px);
-    animation: growGlow 20s ease-in infinite forwards;
-    transform-origin: top right;
-    z-index: -1;
-
-}
-
 @keyframes growGlow {
     0% { scale: 0.5; }
-    50% { scale: 2; } 
+    50% { scale: 1.5; } 
     100% { scale: 0.5; }
 }

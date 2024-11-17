@@ -26,8 +26,17 @@ import arrow from './arrow.svg'
 import contact from './contact.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
+import mysql from './mysql.svg'
+import postgresql from './postgresql.svg'
+import csharp from './csharp.svg'
+import netcore from './netcore.svg'
+
 
 export {
+    mysql,
+    postgresql,
+    csharp,
+    netcore,
     css,
     express,
     git,
@@ -56,4 +65,4 @@ export {
     contact,
     soundon,
     soundoff
-}
+};
