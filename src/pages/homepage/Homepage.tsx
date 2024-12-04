@@ -1,9 +1,10 @@
 import styles from './Homepage.module.css';
 import { FaFacebook } from "react-icons/fa";
 import { ImLinkedin } from "react-icons/im";
+import AboutMe from './components/AboutMe';
+import profPic from '../../assets/images/myprofpic.png';
 
 import { Link } from "react-router-dom";
-import AboutMe from './components/AboutMe';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Homepage() {
@@ -32,8 +33,8 @@ export default function Homepage() {
                         </div>
                     </div>
                 </div>
-                <div className={styles.noImage} >
-                    NO IMAGE
+                <div className={styles.profilePicContainer} >
+                    <img className={styles.profilePic} src={profPic} alt="" />
                 </div>
             </section>
 

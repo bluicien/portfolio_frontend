@@ -28,8 +28,8 @@ export default function AboutMe ({ myRef }: AboutMeProps): JSX.Element {
         { name: 'typescript', icon: typescript },
         { name: 'mysql', icon: mysql },
         { name: 'postgresql', icon: postgresql },
-        { name: 'csharp', icon: csharp },
-        { name: 'netcore', icon: netcore },
+        { name: 'c#', icon: csharp },
+        { name: '.net core', icon: netcore },
     ];
 
     return (

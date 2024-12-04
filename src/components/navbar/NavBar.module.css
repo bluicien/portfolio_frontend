@@ -9,6 +9,16 @@
     box-shadow: 0px 2px 2px #ffffff, 0 5px 20px #d3d3d393;
 }
 
+.navIcon {
+    text-align: center;
+    width: 3vh;
+    align-self: center;
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 3px red;
+}
+
 .navGroup {
     display: flex;
     align-items: center;

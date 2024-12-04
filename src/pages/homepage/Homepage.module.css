@@ -87,14 +87,19 @@
     border: 1px solid red;
 }
 
-.noImage {
+.profilePicContainer {
     display: flex;
     align-items: center;
     text-align: center;
     font-size: 8rem;
-    background-color: gray;
     width: 40%;
     height: 500px;
+}
+
+.profilePic {
+    width: 100%;
+    border-radius: 70%;
+    border: 5px solid silver;
 }
 
 @keyframes growGlow {
