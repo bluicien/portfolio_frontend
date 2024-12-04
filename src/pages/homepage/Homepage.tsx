@@ -6,6 +6,7 @@ import profPic from '../../assets/images/myprofpic.png';
 
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from 'react';
+import Contact from './components/Contact';
 
 export default function Homepage() {
 
@@ -13,7 +14,9 @@ export default function Homepage() {
     const aboutMeRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
-        if(showMyInfo) aboutMeRef.current?.scrollIntoView({behavior: 'smooth'})
+        if(showMyInfo) {
+            aboutMeRef.current?.scrollIntoView({behavior: 'smooth'})
+        } 
     }, [showMyInfo])
 
     return (
@@ -39,6 +42,8 @@ export default function Homepage() {
             </section>
 
             {showMyInfo && <AboutMe myRef={aboutMeRef} />}
+
+            <Contact />
         </div>
     )
 }
