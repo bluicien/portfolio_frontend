@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
-import styles from './Contact.module.css';
-
-// type formType = {
-//     contactForm?: boolean;
-//     messageForm?: boolean;
-// }
+import styles from './Form.module.css';
 
 export default function Contact(): JSX.Element {
     
@@ -69,15 +64,10 @@ export default function Contact(): JSX.Element {
             <fieldset className={styles.field} >
                 <legend className={styles.formTitle} >Contact Me</legend>
                 <label className={styles.formLabel} htmlFor="name">Name: </label>
-                <br />
                 <input className={styles.formInput} type="text" name="name" id="name" value={userMessage.name} onChange={handleKeyStroke} />
-                <br />
                 <label className={styles.formLabel} htmlFor="name">Email: </label>
-                <br />
                 <input className={styles.formInput} type="text" name="email" id="email" value={userMessage.email} onChange={handleKeyStroke} />
-                <br />
                 <label className={styles.formLabel} htmlFor="message">Message: </label>
-                <br />
                 <textarea className={styles.textBox} name="message" id="message" value={userMessage.message} onChange={handleKeyStroke} ></textarea><br />
                 <button className={styles.formBtn} >Send Message!</button>
             </fieldset>

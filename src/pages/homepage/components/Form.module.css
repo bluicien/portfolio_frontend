@@ -1,0 +1,33 @@
+.formField {
+    width: 40%;
+}
+
+.field {
+    border: 2px solid white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.formTitle {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.formLabel {
+    font-size: 1.3rem;
+    margin: 16px 0 2px 0;
+}
+
+.formInput, .textBox {
+    font-size: 1.3rem;
+    padding: 5px;
+    max-width: 25vw;
+}
+
+.formBtn {
+    width: 50%;
+    align-self: center;
+    border-color: white;
+    font-size: 1.3rem;
+}
