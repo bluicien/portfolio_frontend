@@ -4,19 +4,23 @@
     column-gap: 50%;
     height: 5vh;
     width: 100%;
-    background-color: #fff;
+    background-color: var(--primary-color);
     z-index: 0;
     box-shadow: 0px 2px 2px #ffffff, 0 5px 20px #d3d3d393;
+
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
 
 .navIcon {
     text-align: center;
     width: 3vh;
     align-self: center;
-    color: black;
+    color: white;
     font-size: 2rem;
     font-weight: bold;
-    text-shadow: 0 0 3px red;
+    text-shadow: 0 0 5px red;
 }
 
 .navGroup {
