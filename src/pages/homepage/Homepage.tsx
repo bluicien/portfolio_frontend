@@ -59,7 +59,7 @@ export default function Homepage() {
             <section className={styles.contentContainer} >
                 <div className={styles.intro} >
                     <h1>Hello! My name is <span className={styles.myName} >Brendon Luicien.</span></h1>
-                    <h2>Welcome to my website. I am a Junior Fullstack Software Engineer based in New Zealand.</h2>
+                    <h2>Hi there! I'm Brendon, a Junior Fullstack Software Engineer crafting innovative digital solutions from beautiful New Zealand. Whether you're here to explore my projects or learn more about what drives me, welcome to my corner of the web!</h2>
                     
                     <div className={styles.redirectLinks} >
                         <button className={styles.aboutmeBtn} onClick={() => setShowMyInfo(true)} >About Me</button>
