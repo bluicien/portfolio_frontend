@@ -4,7 +4,7 @@
     column-gap: 50%;
     height: 5vh;
     width: 100%;
-    background-color: var(--primary-color);
+    background-color: #1C1C1C;
     z-index: 0;
     box-shadow: 0px 2px 2px #ffffff, 0 5px 20px #d3d3d393;
 
@@ -20,7 +20,7 @@
     color: white;
     font-size: 2rem;
     font-weight: bold;
-    text-shadow: 0 0 5px red;
+    text-shadow: 0 0 10px cyan;
 }
 
 .navGroup {
@@ -30,51 +30,17 @@
 }
 
 .navItem {
-    text-align: center;
-    background-color: #fff;
-    color: black;
-    width: 6rem;
-    border-radius: 1.2rem;
     position: relative;
+    width: 6rem;
+    text-align: center;
+    font-size: 1.3rem;
+    background-color: transparent;
+    color: white;
 }
 
 .navItem:hover {
-    background-color: #fff;
-    color: black;
+    margin-top: 2px;
+    color: cyan;
+    border-bottom: 2px solid cyan;
 }
 
-@property --angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-}
-
-.navItem:hover::after, .navItem:hover::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: conic-gradient(from var(--angle), transparent, blue 25%, red);
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    padding: 2px;
-    z-index: -1;
-    border-radius: 1.2rem;
-    animation: 5s spin linear infinite;
-
-}
-
-.navItem:hover::before {
-    filter: blur(0.5rem);
-    opacity: 0.5;
-}
-
-@keyframes spin {
-    from {
-        --angle: 0deg;
-    }
-    to {
-        --angle: 360deg;
-    }
-}

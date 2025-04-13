@@ -58,14 +58,14 @@ export default function Homepage() {
             <div className={styles.lightSource} />
             <section className={styles.contentContainer} >
                 <div className={styles.intro} >
-                    <h1>Hello! My name is <span className={styles.myName} >Brendon Luicien.</span></h1>
-                    <h2>Hi there! I'm Brendon, a Junior Fullstack Software Engineer crafting innovative digital solutions from beautiful New Zealand. Whether you're here to explore my projects or learn more about what drives me, welcome to my corner of the web!</h2>
+                    <h1>Hello! My name is <br/><span className={styles.myName} >Brendon Luicien.</span></h1>
+                    <p>I am a Junior Fullstack Software Engineer crafting innovative digital solutions from beautiful New Zealand. Whether you're here to explore my projects or learn more about what drives me, welcome to my corner of the web!</p>
                     
                     <div className={styles.redirectLinks} >
                         <button className={styles.aboutmeBtn} onClick={() => setShowMyInfo(true)} >About Me</button>
                         <div className={styles.socialMediaBtnGroup} >
-                            <Link className={styles.socialBtn} to="https://www.facebook.com/brendon.luicien" ><FaFacebook size="1rem" /></Link>
-                            <Link className={styles.socialBtn} to="https://www.linkedin.com/in/bluicien-bl2" ><ImLinkedin size="1rem" /></Link>
+                            <Link className={styles.socialBtn} to="https://www.facebook.com/brendon.luicien" ><FaFacebook size="2rem" /></Link>
+                            <Link className={styles.socialBtn} to="https://www.linkedin.com/in/bluicien-bl2" ><ImLinkedin size="2rem" /></Link>
                         </div>
                     </div>
                 </div>
@@ -77,9 +77,9 @@ export default function Homepage() {
             {showMyInfo && <AboutMe myRef={aboutMeRef} />}
 
             <section>
-                <div>
-                    <button onClick={() => setShowForm(SHOW_CONTACT_FORM)} >Contact Me</button>
-                    <button onClick={() => setShowForm(SHOW_REVIEW_FORM)} >Review</button>
+                <div className={styles.formSelectContainer} >
+                    <button className={`${styles.formSelectBtn} ${showForm === SHOW_CONTACT_FORM ? styles.formSelectActive : ""}`} onClick={() => setShowForm(SHOW_CONTACT_FORM)} >Contact Me</button>
+                    <button className={`${styles.formSelectBtn} ${showForm === SHOW_REVIEW_FORM ? styles.formSelectActive : ""}`} onClick={() => setShowForm(SHOW_REVIEW_FORM)} >Review</button>
                 </div>
                 <div className={styles.formAndModel} >
                     {showForm === SHOW_CONTACT_FORM && <Contact />}

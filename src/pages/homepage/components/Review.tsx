@@ -3,15 +3,13 @@ import styles from './Form.module.css';
 import { useState } from 'react';
 import { ImStarFull } from "react-icons/im";
 
+type Message = {
+    name: string;
+    rating: number;
+    review: string;
+}
+
 export default function Review() {
-
-    
-    type Message = {
-        name: string;
-        rating: number;
-        review: string;
-    }
-
     const [ userReview, setUserReview ] = useState<Message>({ name: "", rating: 0, review: "" });
     const [starHovered, setStarHovered] = useState<number>(0)
 

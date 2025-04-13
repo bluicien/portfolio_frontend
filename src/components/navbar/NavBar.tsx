@@ -5,7 +5,7 @@ export default function NavBar() {
 
   return (
     <header className={styles.header}>
-        <div className={styles.navIcon} >Brendon</div>
+        <div className={styles.navIcon} >BL</div>
 
         <nav className={styles.navGroup} >
               <NavLink className={styles.navItem} to={"/"} >Home</NavLink>

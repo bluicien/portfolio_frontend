@@ -6,14 +6,12 @@ interface AboutMeProps {
     myRef: RefObject<HTMLElementTagNameMap['section']>;
 }
 
-export default function AboutMe ({ myRef }: AboutMeProps): JSX.Element {
+type SkillItem = {
+    name: string,
+    icon: string
+}
 
-    console.log(myRef);
-
-    type SkillItem = {
-        name: string,
-        icon: string
-    }
+export default function AboutMe ({ myRef }: AboutMeProps): JSX.Element {    
 
     const skillIcons: SkillItem[] = [
         { name: 'html', icon: html },
@@ -138,22 +136,3 @@ export default function AboutMe ({ myRef }: AboutMeProps): JSX.Element {
         </section>
     )
   }
-
-
-
-// ============ FOR VARIABLE FUNCTION COMPONENTS ========= //
-// import React, { RefObject } from 'react';
-
-// interface AboutMeProps {
-//     myRef: RefObject<HTMLElementTagNameMap['section']>;
-// }
-
-// const AboutMe: React.FC<AboutMeProps> = ({ myRef }) => {
-//     return (
-//     <section ref={myRef}>
-//         {/* Your component content here */}
-//     </section>
-//     );
-// }
-
-// export default AboutMe;

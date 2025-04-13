@@ -11,19 +11,6 @@
     min-height: 90vh;
 }
 
-.lightSource {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 30vw;
-    width: 30vw;
-    background-color: rgba(164, 229, 255, 0.466);
-    filter: blur(250px);
-    animation: growGlow 20s ease-in infinite forwards;
-    transform-origin: top right;
-    z-index: -1;
-}
-
 .intro {
     height: 50%;
     width: 50%;
@@ -35,14 +22,17 @@
     font-size: 3rem;
     margin: 0;
     line-height: normal;
+    font-family: sans-serif;
 }
 
-.intro > h2 { 
+.intro > p { 
     font-size: 1.5rem;
+    font-family: serif;
 } 
 
 .intro span {
-    color: rgb(173, 0, 0);
+    font-size: 4rem;
+    color: aqua;
 }
 
 .redirectLinks {
@@ -53,12 +43,20 @@
 }
 
 .aboutmeBtn {
-    border: 2px solid white;
-    background-color: transparent;
+    font-size: 2rem;
+    font-weight: 600;
+    width: 300px;
+    padding: 10px 20px;
+    margin: 3vh 0 2vh 0;
+    border: 2px solid black;
+    background-color: cyan;
+    color: #1C1C1C;
 }
 
 .aboutmeBtn:hover {
-    border-color: red;
+    border-color: cyan;
+    background-color: #303030;
+    color: cyan;
 }
 
 .socialMediaBtnGroup {
@@ -72,18 +70,18 @@
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     color: black;
     background-color: white;
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     transition: 0.25s;
 }
 
 .socialBtn:hover {
     background-color: black;
     color: white;
-    border: 1px solid red;
+    border: 2px solid cyan;
 }
 
 .profilePicContainer {
@@ -98,7 +96,31 @@
 .profilePic {
     width: 100%;
     border-radius: 70%;
-    border: 5px solid silver;
+    border: 5px solid cyan;
+}
+
+.formSelectContainer {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.formSelectBtn {
+    background-color: cyan;
+    color: black;
+    border: 1px solid cyan;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.formSelectBtn:hover, .formSelectActive {
+    background-color: #7e7e7e;
+    border: 1px solid cyan;
+    color: white;
 }
 
 .canvasModel {
@@ -120,11 +142,6 @@
 .rotateHover {
     cursor: grab;
 }
-
-
-
-
-
 
 @keyframes growGlow {
     0% { scale: 0.5; }
