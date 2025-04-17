@@ -29,7 +29,7 @@
     column-gap: 1vw;
 }
 
-.navItem {
+.navItem, .active {
     position: relative;
     width: 6rem;
     text-align: center;
@@ -38,9 +38,14 @@
     color: white;
 }
 
-.navItem:hover {
+.active, .active:hover {
     margin-top: 2px;
     color: cyan;
     border-bottom: 2px solid cyan;
 }
 
+.navItem:hover {
+    margin-top: 2px;
+    color: white;
+    border-bottom: 2px solid white;
+}

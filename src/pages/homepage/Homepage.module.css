@@ -124,10 +124,8 @@
 }
 
 .canvasModel {
-    width: 40%;
-    background-color: rgb(0, 0, 0);
-    border-radius: 50%;
-    box-shadow: 10px 10px 10px 10px black, -10px -10px 10px 10px black;
+    width: 30%;
+    aspect-ratio: 1/1 auto;
 }
 
 .formAndModel {
