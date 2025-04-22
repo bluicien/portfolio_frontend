@@ -10,7 +10,7 @@ export default function NavBar() {
             <nav className={styles.navGroup} >
                 <NavLink className={({isActive}) => isActive ? styles.active : styles.navItem} to={"/"} >Home</NavLink>
                 <NavLink className={({isActive}) => isActive ? styles.active : styles.navItem} to={"/projects"} >Projects</NavLink>
-                <NavLink className={({isActive}) => isActive ? styles.active : styles.navItem} to={"/about"}  >About Me</NavLink>
+                <NavLink className={({isActive}) => isActive ? styles.active : styles.navItem} to={"/about-me"}  >About Me</NavLink>
             </nav>
         </header>
     )
