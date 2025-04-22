@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import NavBar from '../../components/navbar/NavBar'
+import ChatBot from '../../components/chatBot/ChatBot'
 // import { useState } from 'react'
 
 export default function Root() {
@@ -10,6 +11,7 @@ export default function Root() {
     <div className='pageContainer'>
         <NavBar />
         <Outlet />
+        <ChatBot />
     </div>
   )
 }
