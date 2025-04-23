@@ -26,8 +26,19 @@
 }
 
 .formBtn {
-    width: 50%;
+    width: 40%;
+    aspect-ratio: 9/2;
     align-self: center;
-    border-color: white;
+    background-color: cyan;
+    border: 3px solid black;
+    border-radius: 8px;
+    color: #303030;
     font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.formBtn:hover {
+    background-color: #303030;
+    color: cyan;
+    border-color: cyan;
 }
