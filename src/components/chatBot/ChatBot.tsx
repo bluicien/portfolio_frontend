@@ -27,7 +27,7 @@ function ChatBot(): JSX.Element {
         if (messageHistory.length === 0) {
             setMessageHistory(mockData);
         }
-    }, []);
+    }, [messageHistory.length]);
 
     return (
         <section className={`${chatBotOpen ? styles.chatBoxContainer : styles.chatBoxContainerClosed}`} >
