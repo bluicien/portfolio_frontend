@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './ChatBot.module.css';
 import Message from './Message';
 import { MessageProps } from './types.ts';
@@ -22,6 +22,12 @@ function ChatBot(): JSX.Element {
 
     const [chatBotOpen, setChatBotOpen] = useState(false)
     const [messageHistory, setMessageHistory] = useState<Array<MessageProps>>(mockData)
+
+    useEffect(() => {
+        if (messageHistory.length === 0) {
+            setMessageHistory(mockData);
+        }
+    }, []);
 
     return (
         <section className={`${chatBotOpen ? styles.chatBoxContainer : styles.chatBoxContainerClosed}`} >
