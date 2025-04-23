@@ -5,12 +5,23 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: radial-gradient(circle,rgba(28, 28, 28, 1) 0%, rgba(54, 69, 79, 1) 100%);
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100vw;
+  --primary-color: #1D3557; /* Dark Blue for Headers, Navbar and Accents */
+  --secondary-color: #FF6F4A; /* Bright Orange for Buttons and Hover states */
+  --background: #F2F2F2; /* Light Gray for Section Background */
+  --font-color: #333333; /* Dark Gray for Text */
+  --interactive-highlight-red: #FF0000; /* Red for Interactive Elements */
+  --interactive-highlight-blue: #0000FF; /* Blue for Interactive Elements */
 }
 
 a {
@@ -25,29 +36,19 @@ a:hover {
 body {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
   display: flex;
   place-items: center;
+  width: 100%;
   min-width: 320px;
   min-height: 100vh;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {

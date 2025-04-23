@@ -1,0 +1,130 @@
+.chatBoxContainer {
+    position: fixed;
+    bottom: 1px;
+    right: 1px;
+    width: 400px;
+    max-width: calc(100% - 20px);
+    height: 500px;
+    max-height: calc(100% - 20px);
+    background-color: #303030;
+    border-radius: 8px;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 4px 12px;    
+}
+
+.chatBoxContainerClosed {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 12px;
+    cursor: pointer;
+    color: cyan;
+}
+
+
+
+.chatBoxContainerClosed > button {
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    border: transparent;
+    font-weight: 900;
+}
+
+/* ==================== INNER CHAT BOX ====================  */
+
+.chatBoxInnerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    row-gap: 5px;
+    margin: 0 5px
+}
+
+.chatBoxHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    padding: 0 20px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    background-color: #202020;
+}
+
+.chatBoxHeader > h1 {
+    padding: 0;
+    margin: 0;
+}
+
+.closeBtn {
+    border: 2px solid white;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    font-weight: 900;
+}
+
+.closeBtn:hover {
+    background-color: red;
+}
+
+.chatBoxBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 75%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-shadow: #ffffff33 0px 4px 12px;
+}
+
+.chatBoxInput {
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+    font-size: 1.1rem;
+    font-family: sans-serif;
+}
+
+.chatBoxInput > input {
+    width: 70%;
+    padding: 0 1rem;
+    margin: 0;
+    font: inherit;
+    border-radius: 5px;
+}
+
+.chatBoxInput > input:focus {
+    outline: none;
+    border: 2px solid cyan;
+    background-color: #202020;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 4px 12px;
+}
+
+
+.chatBoxInput > button {
+    width: 20%;
+    color: black;
+    font: inherit;
+    font-weight: 700;
+    background-color: cyan;
+    border:2px solid #303030;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+}
+
+.chatBoxInput > button:hover {
+    color: cyan;
+    background-color: #303030;
+    border:2px solid cyan;
+}
