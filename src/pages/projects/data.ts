@@ -10,7 +10,7 @@ const projects: Array<Project> = [
     {
         id: 1,
         name: "Jammming",
-        description: "3rd party webapp that allows user to authenticate with spotify and search songs and build playlists directly to their spotify account.",
+        description: "A 3rd party webapp that allows user to authenticate with spotify, browse songs and build playlists directly to their spotify account.",
         imgUrl: "",
         repoUrl: "https://github.com/bluicien/jammming.git"
     },
@@ -34,7 +34,35 @@ const projects: Array<Project> = [
         description: "Chatbot powered by Gemini AI. It enables the user to type any job profession of choice to simulate a job interview.",
         imgUrl: "",
         repoUrl: "https://github.com/bluicien/ai-job-interview-chatbot"
-    }
+    },
+    // {
+    //     id: 5,
+    //     name: "AI Interview Chat Bot",
+    //     description: "Chatbot powered by Gemini AI. It enables the user to type any job profession of choice to simulate a job interview.",
+    //     imgUrl: "",
+    //     repoUrl: "https://github.com/bluicien/ai-job-interview-chatbot"
+    // },
+    // {
+    //     id: 6,
+    //     name: "AI Interview Chat Bot",
+    //     description: "Chatbot powered by Gemini AI. It enables the user to type any job profession of choice to simulate a job interview.",
+    //     imgUrl: "",
+    //     repoUrl: "https://github.com/bluicien/ai-job-interview-chatbot"
+    // },
+    // {
+    //     id: 7,
+    //     name: "AI Interview Chat Bot",
+    //     description: "Chatbot powered by Gemini AI. It enables the user to type any job profession of choice to simulate a job interview.",
+    //     imgUrl: "",
+    //     repoUrl: "https://github.com/bluicien/ai-job-interview-chatbot"
+    // },
+    // {
+    //     id: 8,
+    //     name: "AI Interview Chat Bot",
+    //     description: "Chatbot powered by Gemini AI. It enables the user to type any job profession of choice to simulate a job interview.",
+    //     imgUrl: "",
+    //     repoUrl: "https://github.com/bluicien/ai-job-interview-chatbot"
+    // },
 ];
 
 export default projects;
