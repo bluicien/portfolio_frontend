@@ -6,7 +6,7 @@ export default function Projects(): React.JSX.Element {
 
     return (
         <section className={styles.projectsPage} >
-            <h1 className={styles.pageTitle} >My Projects :</h1>
+            <h1 className={styles.pageTitle} >My Projects</h1>
             <div className={styles.projectsContainer} >
                 {projectData.map(project => (
                     <div key={project.id} className={styles.projectCard} >
