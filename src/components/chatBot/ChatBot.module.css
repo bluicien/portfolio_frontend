@@ -26,7 +26,10 @@
     color: cyan;
 }
 
-
+.chatBoxContainerClosed:hover > button {
+    color: black;
+    background-color: cyan;
+}
 
 .chatBoxContainerClosed > button {
     width: inherit;

@@ -1,29 +1,38 @@
 .projectsPage {
     padding: 5vh 15vw;
-    min-height: 90vh;
+    min-height: 85vh;
     position: relative;
 }
 
 .pageTitle {
     font-size: 4rem;
+    margin: 0;
     color: cyan;
 }
 
 .projectsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(400px, 0.5fr));
     justify-content: center;
     gap: 4vw;
+    padding: 20px;
+    min-height: 70vh;
 }
+
 
 .projectCard {
     display: flex;
     flex-direction: column;
     align-items: center;
-    aspect-ratio: 1/1;
     background-color: rgb(211, 211, 211);
     box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.863);
     font-family: sans-serif;
+}
+
+.projectCard:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 5px cyan;
 }
 
 .projectTitle {
@@ -44,6 +53,10 @@
     color: black;
     padding: 0 10px;
     margin: 0;
+    margin-bottom: 10px;
+    max-height: 100px;
+    overflow: hidden;
+    text-align: center;
 }
 
 .projectTitle:hover {
@@ -55,10 +68,25 @@
     background-color: rgba(245, 245, 245, 0.705);
 }
 
-.noImage {
+.projectImg {
     width: 200px;
     height: 200px;
     aspect-ratio: 1/1;
+    margin-top: auto;
     background-color: gray;
     border: 2px solid black;
+}
+
+.linkToRepo {
+    margin: 10px;
+    padding: 0 10px;
+    border-radius: 3px;
+    color: blue;
+    font-weight: bold;
+    transition: 500ms;
+}
+
+.linkToRepo:hover {
+    background-color: cyan;
+    color: black;
 }
