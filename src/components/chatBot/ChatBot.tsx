@@ -1,33 +1,103 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './ChatBot.module.css';
 import Message from './Message';
 import { MessageProps } from './types.ts';
+import queueNewMessages from '../../hooks/queueNewMessages.tsx';
 
-const mockData: MessageProps[] = [
-    { id: 1, name: 'User', message: 'Hello!' },
-    { id: 2, name: 'Bot', message: 'Hi there! How can I help you?' },
-    { id: 3, name: 'User', message: 'What is your name?' },
-    { id: 4, name: 'Bot', message: 'I am a chat bot.' },
-    { id: 5, name: 'User', message: 'What is your name?' },
-    { id: 6, name: 'Bot', message: 'I am a chat bot.' },
-    { id: 7, name: 'User', message: 'What is your name?' },
-    { id: 8, name: 'Bot', message: 'I am a chat bot.' },
-    { id: 9, name: 'User', message: 'What is your name?' },
-    { id: 10, name: 'Bot', message: 'I am a chat bot.' },
-    { id: 11, name: 'User', message: 'What is your name?' },
-    { id: 12, name: 'Bot', message: 'I am a chat bot.' },
-]
+const mockData: MessageProps[] = []
 
 function ChatBot(): JSX.Element {
 
-    const [chatBotOpen, setChatBotOpen] = useState(false)
-    const [messageHistory, setMessageHistory] = useState<Array<MessageProps>>(mockData)
+    const [chatBotOpen, setChatBotOpen] = useState(false);
+    const [userMessage, setUserMessage] = useState<string>("");
+    const [messageHistory, setMessageHistory] = useState<MessageProps[]>(mockData);
+    const [pendingAIMessage, setPendingAIMessage] = useState<MessageProps[]>([]);
+
+    const lastRespondedIndex = useRef(-1);
+
+    const handleTextInput = (e: React.ChangeEvent<HTMLInputElement>): void => setUserMessage(e.target.value);
+
+    const handleSendUserMessage = (e: React.FormEvent): void => {
+        e.preventDefault(); 
+        if (!userMessage) return; // Do nothing if no message --Will handle later with user informative message
+        
+        const newMessage: MessageProps = { name: "user", content: userMessage }; // Build new message.
+
+        // Append new message chat history.
+        setMessageHistory((prevHistory: MessageProps[]) => [ ...prevHistory, newMessage ] );
+        setUserMessage(""); // Reset user message input.
+
+        return;
+    }
 
     useEffect(() => {
-        if (messageHistory.length === 0) {
-            setMessageHistory(mockData);
+        if (pendingAIMessage.length === 0) return;
+
+        queueNewMessages({
+            prevHistory: messageHistory,
+            nextHistory: [...messageHistory, ...pendingAIMessage],
+            dispatch: (msg) => setMessageHistory(prev => [...prev, msg]),
+            delay: 1000
+        });
+
+        setPendingAIMessage([]);
+        
+        return;
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [pendingAIMessage])
+
+
+    useEffect(() => {
+        const lastIndex = messageHistory.length - 1;
+        const lastMsg = messageHistory[lastIndex];
+
+        if (lastMsg?.name !== 'user' || lastRespondedIndex.current === lastIndex) return;
+        
+        lastRespondedIndex.current = lastIndex; // Update  lastResponded index to current.
+
+        const sendAIMessage = async () => {
+            try {
+                const chatServerURL: string = import.meta.env.VITE_CHAT_API;
+                const response = await fetch(`${chatServerURL}/api/chat`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({history: messageHistory})
+                });
+
+                if (!response.ok || response.status !== 200) {
+                    throw new Error("Failed to fetch response from chatbot.");
+                }
+
+                const data = await response.json();
+
+                if (!("newChatHistory" in data || "reply" in data))
+                    throw new Error("Invalid response. Failed to fetch response from chatbot.")
+
+                const newChatHistory: MessageProps[] = data.newChatHistory.slice(3); // Cut out system messages.
+                console.log(newChatHistory)
+
+                // const aiMessage:MessageProps[] = [{ name: "bot", content: "How do you do sir" }];
+                // const newChatHistory: MessageProps[] = [ ...aiMessage ];
+        
+                
+                setPendingAIMessage(newChatHistory);
+                return;
+            } catch (error) {
+                if (error instanceof Error)
+                    console.error(error.message);
+                
+                return;
+            }
         }
-    }, [messageHistory.length]);
+
+        sendAIMessage();
+        
+
+    }, [messageHistory]);
+
 
     return (
         <section className={`${chatBotOpen ? styles.chatBoxContainer : styles.chatBoxContainerClosed}`} >
@@ -39,14 +109,14 @@ function ChatBot(): JSX.Element {
                         <button className={styles.closeBtn} onClick={() => setChatBotOpen(false)}>X</button>
                     </div>
                     <div className={styles.chatBoxBody}>
-                        {messageHistory.map(message => (
-                            <Message key={message.id} id={message.id} name={message.name} message={message.message} />
+                        {messageHistory.map((message, index) => (
+                            <Message key={index} name={message.name} content={message.content} />
                         ))}
                     </div>
-                    <div className={styles.chatBoxInput}>
-                        <input type="text" placeholder="Type a message..." />
+                    <form className={styles.chatBoxInput} onSubmit={handleSendUserMessage}>
+                        <input type="text" placeholder="Type a message..." value={userMessage} onChange={handleTextInput} />
                         <button>Send</button>
-                    </div>
+                    </form>
                 </div>
             }
         </section>
