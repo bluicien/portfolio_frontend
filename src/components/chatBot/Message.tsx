@@ -3,11 +3,11 @@ import { MessageProps } from './types.ts';
 
 function Message(props: MessageProps): JSX.Element {
 
-    const { name, content } = props;
+    const { role, content } = props;
 
     return (
-        <article className={`${styles.messageContainer} ${name === 'user' ? styles.userMessage : styles.botMessage}`} >
-            <p className={styles.messageSender} >{name}</p>
+        <article className={`${styles.messageContainer} ${role === 'user' ? styles.userMessage : styles.botMessage}`} >
+            <p className={styles.messageSender} >{role}</p>
             <p className={styles.messageBox} >{content}</p>
         </article>
     )

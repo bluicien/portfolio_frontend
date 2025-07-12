@@ -1,5 +1,5 @@
 //  | (string & {});
 export interface MessageProps {
-    name: "user" | "model";
+    role: "user" | "model";
     content: string;
 }

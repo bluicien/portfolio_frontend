@@ -1,4 +1,4 @@
-type MessageProps = { name: "user" | "model"; content: string };
+type MessageProps = { role: "user" | "model"; content: string };
 
 interface QueueOptions {
     prevHistory: MessageProps[];

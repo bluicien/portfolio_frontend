@@ -21,7 +21,7 @@ function ChatBot(): JSX.Element {
         e.preventDefault(); 
         if (!userMessage) return; // Do nothing if no message --Will handle later with user informative message
         
-        const newMessage: MessageProps = { name: "user", content: userMessage }; // Build new message.
+        const newMessage: MessageProps = { role: "user", content: userMessage }; // Build new message.
 
         // Append new message chat history.
         setMessageHistory((prevHistory: MessageProps[]) => [ ...prevHistory, newMessage ] );
@@ -52,7 +52,7 @@ function ChatBot(): JSX.Element {
         const lastIndex = messageHistory.length - 1;
         const lastMsg = messageHistory[lastIndex];
 
-        if (lastMsg?.name !== 'user' || lastRespondedIndex.current === lastIndex) return;
+        if (lastMsg?.role !== 'user' || lastRespondedIndex.current === lastIndex) return;
         
         lastRespondedIndex.current = lastIndex; // Update  lastResponded index to current.
 
@@ -76,14 +76,14 @@ function ChatBot(): JSX.Element {
                 if (!("newChatHistory" in data || "reply" in data))
                     throw new Error("Invalid response. Failed to fetch response from chatbot.")
 
-                const newChatHistory: MessageProps[] = data.newChatHistory.slice(3); // Cut out system messages.
-                console.log(newChatHistory)
+                console.log(data.reply)
+                console.log(data.newChatHistory)
 
                 // const aiMessage:MessageProps[] = [{ name: "bot", content: "How do you do sir" }];
                 // const newChatHistory: MessageProps[] = [ ...aiMessage ];
         
                 
-                setPendingAIMessage(newChatHistory);
+                setPendingAIMessage(data.reply);
                 return;
             } catch (error) {
                 if (error instanceof Error)
@@ -110,7 +110,7 @@ function ChatBot(): JSX.Element {
                     </div>
                     <div className={styles.chatBoxBody}>
                         {messageHistory.map((message, index) => (
-                            <Message key={index} name={message.name} content={message.content} />
+                            <Message key={index} role={message.role} content={message.content} />
                         ))}
                     </div>
                     <form className={styles.chatBoxInput} onSubmit={handleSendUserMessage}>
