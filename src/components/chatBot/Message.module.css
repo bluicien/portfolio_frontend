@@ -18,6 +18,7 @@
     font-weight: 700;
     color: white;
     font-style: italic;
+    text-transform: capitalize;
 }
 
 .messageBox {
