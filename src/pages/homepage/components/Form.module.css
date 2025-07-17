@@ -26,8 +26,9 @@
 }
 
 .formBtn {
+    min-width: 250px;
     width: 40%;
-    aspect-ratio: 9/2;
+    padding: 10px 12px;
     align-self: center;
     background-color: cyan;
     border: 3px solid black;

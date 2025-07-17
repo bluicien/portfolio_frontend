@@ -1,6 +1,7 @@
 import styles from './Homepage.module.css';
 import { FaFacebook } from "react-icons/fa";
-import { ImLinkedin } from "react-icons/im";
+import { ImLinkedin, ImGithub } from "react-icons/im";
+
 import profPic from '../../assets/images/myprofpic.png';
 
 import Contact from './components/Contact';
@@ -30,6 +31,7 @@ export default function Homepage() {
                         <div className={styles.socialMediaBtnGroup} >
                             <Link className={styles.socialBtn} to="https://www.facebook.com/brendon.luicien" ><FaFacebook size="2rem" /></Link>
                             <Link className={styles.socialBtn} to="https://www.linkedin.com/in/bluicien-bl2" ><ImLinkedin size="2rem" /></Link>
+                            <Link className={styles.socialBtn} to="https://github.com/bluicien" ><ImGithub size="2rem" /></Link>
                         </div>
                     </div>
                 </div>
