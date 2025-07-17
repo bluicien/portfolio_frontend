@@ -4,11 +4,12 @@ import { ImLinkedin, ImGithub } from "react-icons/im";
 
 import profPic from '../../assets/images/myprofpic.png';
 
-import Contact from './components/Contact';
-import Review from './components/Review';
+import Contact from './components/forms/Contact';
+import Review from './components/forms/Review';
 
 import { useState } from 'react';
 import { Link } from "react-router-dom";
+import ReviewFeed from './components/reviews/ReviewFeed';
 
 export default function Homepage() {
 
@@ -40,15 +41,22 @@ export default function Homepage() {
                 </div>
             </section>
 
-            <section>
-                <div className={styles.formSelectContainer} >
-                    <button className={`${styles.formSelectBtn} ${showForm === SHOW_CONTACT_FORM ? styles.formSelectActive : ""}`} onClick={() => setShowForm(SHOW_CONTACT_FORM)} >Contact Me</button>
-                    <button className={`${styles.formSelectBtn} ${showForm === SHOW_REVIEW_FORM ? styles.formSelectActive : ""}`} onClick={() => setShowForm(SHOW_REVIEW_FORM)} >Review</button>
-                </div>
-                <div className={styles.formAndModel} >
-                    {showForm === SHOW_CONTACT_FORM && <Contact />}
-                    {showForm === SHOW_REVIEW_FORM && <Review />}
-                </div>
+            <hr />
+            <section className={styles.messagingSection} >
+                <section className={styles.forms} >
+                    <div className={styles.formSelectContainer} >
+                        <button className={`${styles.formSelectBtn} ${showForm === SHOW_CONTACT_FORM ? styles.formSelectActive : ""}`} onClick={() => setShowForm(SHOW_CONTACT_FORM)} >Contact Me</button>
+                        <button className={`${styles.formSelectBtn} ${showForm === SHOW_REVIEW_FORM ? styles.formSelectActive : ""}`} onClick={() => setShowForm(SHOW_REVIEW_FORM)} >Review</button>
+                    </div>
+                    <div className={styles.formAndModel} >
+                        {showForm === SHOW_CONTACT_FORM && <Contact />}
+                        {showForm === SHOW_REVIEW_FORM && <Review />}
+                    </div>
+                </section>
+
+                <section className={styles.reviewFeed} >
+                    <ReviewFeed />
+                </section>
             </section>
         </div>
     )

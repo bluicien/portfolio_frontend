@@ -149,6 +149,31 @@
     cursor: grab;
 }
 
+.homepageContainer > hr {
+    margin: 50px 0;
+    box-shadow: 0px 2px 10px #ffffff, 0 5px 20px #d3d3d393;
+}
+
+.messagingSection {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.forms {
+    width: 40%;
+}
+
+.formSelectContainer, .formAndModel {
+    width: 100%;
+}
+
+.reviewFeed {
+    width: 50%;
+}
+
+
 @keyframes growGlow {
     0% { scale: 0.5; }
     50% { scale: 1.5; } 
@@ -202,5 +227,14 @@
     .profilePicContainer {
         width: 50vw;
         min-width: 300px
+    }
+
+    .messagingSection {
+        flex-direction: column;
+        row-gap: 50px;
+    }
+
+    .messagingSection > section {
+        width: 100%;
     }
 }

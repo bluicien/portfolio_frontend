@@ -1,0 +1,36 @@
+.sectionTitle {
+    color: cyan;
+    font-size: 2rem;
+    margin: 0 0 15px;
+}
+
+.reviewList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
+.reviewItem {
+    border: 2px solid white;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.311);
+}
+
+.reviewItem > p {
+    margin: 0;
+}
+
+.reviewItem > p > span {
+    color: cyan;
+}
+
+.ratingStar {
+    display: flex;
+    align-items: center;
+}
+
+.star:hover {
+    transition: 2s;
+    rotate: y 180deg;
+}
