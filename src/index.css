@@ -1,4 +1,5 @@
 :root {
+  width: 100%;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -12,16 +13,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-#root {
-  width: 100vw;
   --primary-color: #1D3557; /* Dark Blue for Headers, Navbar and Accents */
   --secondary-color: #FF6F4A; /* Bright Orange for Buttons and Hover states */
   --background: #F2F2F2; /* Light Gray for Section Background */
   --font-color: #333333; /* Dark Gray for Text */
   --interactive-highlight-red: #FF0000; /* Red for Interactive Elements */
   --interactive-highlight-blue: #0000FF; /* Blue for Interactive Elements */
+}
+
+#root {
+  width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 a {

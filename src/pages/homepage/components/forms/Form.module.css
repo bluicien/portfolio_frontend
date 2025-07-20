@@ -1,5 +1,5 @@
 .formField {
-    width: 40%;
+    width: 100%;
 }
 
 .field {
@@ -7,6 +7,7 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .formTitle {
@@ -22,12 +23,13 @@
 .formInput, .textBox {
     font-size: 1.3rem;
     padding: 5px;
-    max-width: 25vw;
+    width: 100%;
 }
 
 .formBtn {
+    min-width: 250px;
     width: 40%;
-    aspect-ratio: 9/2;
+    padding: 10px 12px;
     align-self: center;
     background-color: cyan;
     border: 3px solid black;

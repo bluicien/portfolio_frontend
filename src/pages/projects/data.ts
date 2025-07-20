@@ -35,34 +35,6 @@ const projects: Array<Project> = [
         imgUrl: "",
         repoUrl: "https://github.com/bluicien/ai-job-interview-chatbot"
     },
-    // {
-    //     id: 5,
-    //     name: "AI Interview Chat Bot",
-    //     description: "Chatbot powered by Gemini AI. It enables the user to type any job profession of choice to simulate a job interview.",
-    //     imgUrl: "",
-    //     repoUrl: "https://github.com/bluicien/ai-job-interview-chatbot"
-    // },
-    // {
-    //     id: 6,
-    //     name: "AI Interview Chat Bot",
-    //     description: "Chatbot powered by Gemini AI. It enables the user to type any job profession of choice to simulate a job interview.",
-    //     imgUrl: "",
-    //     repoUrl: "https://github.com/bluicien/ai-job-interview-chatbot"
-    // },
-    // {
-    //     id: 7,
-    //     name: "AI Interview Chat Bot",
-    //     description: "Chatbot powered by Gemini AI. It enables the user to type any job profession of choice to simulate a job interview.",
-    //     imgUrl: "",
-    //     repoUrl: "https://github.com/bluicien/ai-job-interview-chatbot"
-    // },
-    // {
-    //     id: 8,
-    //     name: "AI Interview Chat Bot",
-    //     description: "Chatbot powered by Gemini AI. It enables the user to type any job profession of choice to simulate a job interview.",
-    //     imgUrl: "",
-    //     repoUrl: "https://github.com/bluicien/ai-job-interview-chatbot"
-    // },
 ];
 
 export default projects;

@@ -1,11 +1,9 @@
 .header {
     display: flex;
-    justify-content: space-around;
-    column-gap: 50%;
+    justify-content: center;
     height: 5vh;
     width: 100%;
     background-color: #1C1C1C;
-    z-index: 0;
     box-shadow: 0px 2px 2px #ffffff, 0 5px 20px #d3d3d393;
 
     position: sticky;
@@ -13,9 +11,16 @@
     z-index: 5;
 }
 
+.navItemContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1640px;
+    height: 100%;
+}
+
 .navIcon {
     text-align: center;
-    width: 3vh;
     align-self: center;
     color: white;
     font-size: 2rem;
@@ -31,7 +36,7 @@
 
 .navItem, .active {
     position: relative;
-    width: 6rem;
+    width: fit-content;
     text-align: center;
     font-size: 1.3rem;
     background-color: transparent;
@@ -48,4 +53,25 @@
     margin-top: 2px;
     color: white;
     border-bottom: 2px solid white;
+}
+
+@media only screen and (max-width: 1640px) {
+    .header {
+        padding: 0 5vw;
+    }
+}
+
+
+@media only screen and (max-width: 1020px) {
+    .navItem, .active {
+        font-size: 1rem;
+    }
+
+    .navIcon {
+        font-size: 1.5rem;
+    }
+
+    .navGroup {
+        column-gap: 2vw;
+    }
 }

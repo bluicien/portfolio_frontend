@@ -1,10 +1,13 @@
 .homepageContainer {
-    padding: 5vh 15vw;
+    width: 100%;
+    padding: 5vh 0;
     min-height: 90vh;
+    max-width: 1640px;
     position: relative;
 }
 
 .contentContainer {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,10 +45,14 @@
     row-gap: 12px;
 }
 
+.redirectLinks > a {
+    width: 300px;
+}
+
 .aboutmeBtn {
     font-size: 2rem;
     font-weight: 600;
-    width: 300px;
+    width: 100%;
     padding: 10px 20px;
     margin: 3vh 0 2vh 0;
     border: 2px solid black;
@@ -91,7 +98,7 @@
     text-align: center;
     font-size: 8rem;
     width: 40%;
-    height: 500px;
+    min-width: 400px;
 }
 
 .profilePic {
@@ -142,8 +149,92 @@
     cursor: grab;
 }
 
+.homepageContainer > hr {
+    margin: 50px 0;
+    box-shadow: 0px 2px 10px #ffffff, 0 5px 20px #d3d3d393;
+}
+
+.messagingSection {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.forms {
+    width: 40%;
+}
+
+.formSelectContainer, .formAndModel {
+    width: 100%;
+}
+
+.reviewFeed {
+    width: 50%;
+}
+
+
 @keyframes growGlow {
     0% { scale: 0.5; }
     50% { scale: 1.5; } 
     100% { scale: 0.5; }
+}
+
+@media only screen and (max-width: 1640px) {
+    .homepageContainer {
+        padding: 5vw;
+    }
+}
+
+@media only screen and (max-width: 1020px) {
+    .homepageContainer {
+        padding: 2vh 8vw;
+        padding-bottom: 10vh;
+    }
+
+    .contentContainer {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        row-gap: 50px;
+        padding: 50px 0;
+        min-height: fit-content;
+    }
+
+    .intro {
+        width: 100%;
+        align-items: center;
+    }
+
+    .intro  > h1 {
+        font-size: 2rem;
+    }
+
+    .intro > p { 
+        font-size: 1rem;
+        font-family: serif;
+    } 
+
+    .intro span {
+        font-size: 3rem;
+        color: aqua;
+    }
+
+    .redirectLinks {
+        align-items: center;
+        gap: 0;
+    }
+    
+    .profilePicContainer {
+        width: 50vw;
+        min-width: 300px
+    }
+
+    .messagingSection {
+        flex-direction: column;
+        row-gap: 50px;
+    }
+
+    .messagingSection > section {
+        width: 100%;
+    }
 }
