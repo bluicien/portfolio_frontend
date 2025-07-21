@@ -35,12 +35,13 @@ export default function Contact(): JSX.Element {
         }
 
         // Send email via emailjs
+        console.log(VITE_PUBLIC_KEY)
         emailjs.send(VITE_SERVICE_ID, VITE_TEMPLATE_ID, templateParams, VITE_PUBLIC_KEY)
         .then(() => {
             console.log("Email was sent successfully!");
             setUserMessage({ name: "", email: "", message: "" }); // Reset form values to empty
         })
-        .catch(() => console.log("Error sending email"));
+        .catch((err) => console.log(err));
     }
 
 
