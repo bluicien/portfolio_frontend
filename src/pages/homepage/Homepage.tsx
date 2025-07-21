@@ -7,7 +7,7 @@ import profPic from '../../assets/images/myprofpic.png';
 import Contact from './components/forms/Contact';
 import Review from './components/forms/Review';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import ReviewFeed from './components/reviews/ReviewFeed';
 
@@ -17,6 +17,10 @@ export default function Homepage() {
     const SHOW_REVIEW_FORM: string = "review";
 
     const [showForm, setShowForm] = useState<string>(SHOW_CONTACT_FORM)
+
+    useEffect(() => {
+        scrollTo({top: 0, behavior: 'smooth'});
+    })
 
     return (
 
