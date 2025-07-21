@@ -46,7 +46,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: 500ms linear;
+    transition: 1s ease-in;
 }
 
 .projectDescription {
@@ -63,7 +63,7 @@
     box-shadow: 0 0 5px white;
     padding: 0 10px;
     width: auto;
-    max-width: 500px;
+    max-width: 1000px;
     overflow: visible;
     background-color: rgba(245, 245, 245, 0.705);
 }
