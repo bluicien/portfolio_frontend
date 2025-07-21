@@ -41,7 +41,7 @@ export default function Contact(): JSX.Element {
             console.log("Email was sent successfully!");
             setUserMessage({ name: "", email: "", message: "" }); // Reset form values to empty
         })
-        .catch((err) => console.log(err));
+        .catch(() => console.log("Failed to send email."));
     }
 
 

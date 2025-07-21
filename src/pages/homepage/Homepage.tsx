@@ -20,7 +20,7 @@ export default function Homepage() {
 
     useEffect(() => {
         scrollTo({top: 0, behavior: 'smooth'});
-    })
+    }, [])
 
     return (
 

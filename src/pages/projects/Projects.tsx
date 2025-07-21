@@ -7,7 +7,7 @@ export default function Projects(): React.JSX.Element {
 
     useEffect(() => {
         scrollTo({top: 0, behavior: 'smooth'});
-    })
+    }, [])
 
 
     return (
