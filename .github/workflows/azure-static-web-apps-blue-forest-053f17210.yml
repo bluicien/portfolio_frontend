@@ -5,7 +5,7 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types: [closed]
     branches:
       - main
 
@@ -47,6 +47,10 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
          VITE_CHAT_API: ${{ secrets.VITE_CHAT_API }}
+         VITE_MY_NAME: ${{ secrets.VITE_MY_NAME }}
+         VITE_PUBLIC_KEY: ${{ secrets.VITE_PUBLIC_KEY }}
+         VITE_SERVICE_ID: ${{ secrets.VITE_SERVICE_ID }}
+         VITE_TEMPLATE_ID: ${{ secrets.VITE_TEMPLATE_ID }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
