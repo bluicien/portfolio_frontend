@@ -1,8 +1,14 @@
 import projectData from "./data";
 import styles from "./Project.module.css";
 import codeBlock from "../../assets/images/codeBlock.png"
+import { useEffect } from "react";
 
 export default function Projects(): React.JSX.Element {
+
+    useEffect(() => {
+        scrollTo({top: 0, behavior: 'smooth'});
+    }, [])
+
 
     return (
         <section className={styles.projectsPage} >

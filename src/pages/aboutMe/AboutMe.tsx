@@ -1,5 +1,6 @@
 import styles from './AboutMe.module.css';
-import { html, css, javascript, express, github, nextjs, nodejs, react, redux, typescript, mysql, postgresql, csharp, netcore } from '../../assets/icons/index.ts';
+import { html, css, javascript, express, github, nextjs, nodejs, react, redux, typescript, mysql, postgresql, csharp, netcore, mongodb } from '../../assets/icons/index.ts';
+import { useEffect } from 'react';
 
 type SkillItem = {
     name: string,
@@ -23,18 +24,24 @@ export default function AboutMe(): JSX.Element {
         { name: 'postgresql', icon: postgresql },
         { name: 'c#', icon: csharp },
         { name: '.net core', icon: netcore },
+        { name: 'mongodb', icon: mongodb },
     ];
+
+    useEffect(() => {
+        scrollTo({top: 0, behavior: 'smooth'});
+    }, [])
+
 
     return (
         <section className={styles.aboutMeSection} >
             <h1 className={styles.pageTitle} >About Me</h1>
             <article>
                 <h2>introduction</h2>
-                <p>I am a dedicated technology enthusiast, currently focused on transitioning into a career in IT
-                    where I can use my skills to help solve real life issues for individuals and businesses. 
-                    Through self-study and targeted coursework, I am proactively acquiring the necessary skills and 
-                    knowledge for an entry-level position. My ambition and unwavering passion for learning drive me 
-                    to excel and contribute effectively to the information technology industry.
+                <p>
+                    Enthusiastic IT professional transitioning into software development with a solid foundation 
+                    in full-stack technologies. Leveraging self-study, certifications, and hands-on projects to 
+                    deliver value in an entry-level developer role. I am passionate about coding, problem
+                    solving, and innovative tech solutions. 
                 </p>
             </article>
             <hr />
@@ -53,82 +60,74 @@ export default function AboutMe(): JSX.Element {
                 <h2>work history</h2>
                 <div className={styles.workListing}>
                     <h5>2021 - Present</h5>
-                    <h4>COMPUTER DYNAMICS LTD</h4>
-                    <p>I began my career as a Warehouse Store Person and have since transitioned into a role in Customer Service 
-                        and Quality Assurance (QA). In my previous position overseeing returns, I ensured that returned goods met 
-                        sellable standards. Additionally, I have experience in training employees and developing Standard Operating 
-                        Procedures (SOPs). My strong problem-solving skills and aptitude for technology have made me a key resource 
-                        for navigating company software to resolve order discrepancies and errors effectively.
-                    </p>
+                    <h4>Customer & Operations Support - <span className={styles.courseProvider}>computer dynamics ltd</span></h4>
+                    <ul>
+                        <li>Oversaw product returns and quality checks, reducing customer complaints and ensuring sellable standards</li>
+                        <li>Resolved order discrepancies via internal software and streamlined inventory workflows for accurate, timely dispatch</li>
+                        <li>Provided phone-based technical support, troubleshooting client issues to maintain high satisfaction</li>
+                        <li>Authored and maintained SOPs to standardize processes and accelerate new-hire training</li>
+                    </ul>
                 </div>
             </article>
             <article>
                 <h2>education</h2>
                 <div className={styles.educationListing} >
-                    <h5>2012 - 2015</h5>
-                    <h4>Bachelor of Engineering (Hons) - <span className={styles.courseProvider} >Auckland University of Technology (AUT)</span></h4>
+                    <h5>2024 - Present</h5>
+                    <h4>Diploma in Software Engineering - <span className={styles.courseProvider} >Mission Ready HQ</span></h4>
                     <ul>
-                        <li>
-                            Mastered the fundamentals of mechanical and electrical engineering, advanced engineering mathematics, and C++ programming.
-                        </li>
-                        <li>Utilized CAD software to develop functional models.</li>
-                        <li>Collaborated on a team project to design a customized cement truck, tailored to meet specific client requirements.</li>
+                        <li>Collaborated in a team using GitHub and Jira to develop full stack web applications</li>
+                        <li>Developed AI solutions to meet client requirement and enhance UX</li>
+                    </ul>
+                </div>
+
+                <div className={styles.educationListing} >
+                    <h5>2023 - Present</h5>
+                    <h4>Full Stack Engineer - <span className={styles.courseProvider} >Codecademy</span></h4>
+                    <ul>
+                        <li>Worked on projects: React web app, Reddit clone, Full-stack e-commerce website using Next.js, Express.js, PostgreSQL. </li>
+                    </ul>
+                </div>
+
+                <div className={styles.educationListing} >
+                    <h5>2023</h5>
+                    <h4>Google IT Support Certificate - <span className={styles.courseProvider} >Coursera</span></h4>
+                    <ul>
+                        <li>Covered technical support, networking, operating systems, system administration, IT security.</li>
                     </ul>
                 </div>
                 <div className={styles.educationListing} >
                     <h5>2023</h5>
                     <h4>IBM Full Stack Software Developer Certificate - <span className={styles.courseProvider} >Coursera</span></h4>
                     <ul>
-                        <li>Completed 10 fundamental courses, a project, and a final assessment demonstrating full-stack development competencies.</li>
-                        <li>
-                            Developed web applications using frameworks such as Node.js, React, Flask, and Django, along with technologies 
-                            including Git, Docker, and IBM Cloud.
-                        </li>
+                        <li>Developed web applications using NodeJS, React, Flask, and Django</li>
                     </ul>
                 </div>
                 <div className={styles.educationListing} >
-                    <h5>2023</h5>
-                    <h4>Google IT Support Certificate - <span className={styles.courseProvider} >Coursera</span></h4>
+                    <h5>2012 - 2015</h5>
+                    <h4>Bachelor of Engineering (Hons) - <span className={styles.courseProvider} >Auckland University of Technology (AUT)</span></h4>
                     <ul>
-                        <li>
-                            Acquired comprehensive knowledge through a 5-course certificate covering technical support, networking, 
-                            operating systems, system administration, and IT security.
-                        </li>
-                        <li>Developed a strong understanding of best practices and industry standards.</li>
-                    </ul>
-                </div>
-                <div className={styles.educationListing} >
-                    <h5>2023 - Present</h5>
-                    <h4>Full Stack Engineer - <span className={styles.courseProvider} >Codecademy</span></h4>
-                    <ul>
-                        <li>
-                            Gained advanced knowledge and practical experience in full-stack software engineering, building on foundations 
-                            from the IBM Full Stack course.
-                        </li>
-                        <li>Developed projects including a React web app interfacing with the Spotify API and a Reddit clone website.</li>
-                        <li>
-                            Currently working on a full-stack e-commerce website using Next.js for frontend, Express.js for backend, and 
-                            PostgreSQL for database management.
-                            </li>
-                    </ul>
-                </div>
-                <div className={styles.educationListing} >
-                    <h5>2024 - Present</h5>
-                    <h4>Diploma in Software Engineering - <span className={styles.courseProvider} >Mission Ready HQ</span></h4>
-                    <ul>
-                        <li>Enhanced my knowledge of the fundamentals of web development and industry best practices.</li>
-                        <li>Learned collaborative development skills working on a team project using Github</li>
+                        <li>I specialized in Mechanical Engineering and learned some Electrical Foundations</li>
+                        <li>Developed functional models using CAD software</li>
+                        <li>Collaborated with a team to engineer a customized cement truck to meet client needs</li>
                     </ul>
                 </div>
             </article>
             <article>
                 <h2>hobbies and interests</h2>
-                <p>
-                    In my free time, I enjoy gardening and working out to maintain both mental and physical well-being. I also have a passion for 
-                    playing video games, reading comics, and watching anime. Through my hobbies, I have become proficient in reading and speaking Japanese. 
-                    Recently, I discovered a new passion for IT, which has motivated me to pursue a career in software and cloud engineering.
-                </p>
+                <ul>
+                    <li>Gym & bodybuilding</li>
+                    <li>Gardening & DIY</li>
+                    <li>Game development</li>
+                    <li>Video games, anime and comics</li>
+                </ul>
+            </article>
+            <article>
+                <h2>languages</h2>
+                <ul>
+                    <li>English (Native)</li>
+                    <li>Japanese (Conversational)</li>
+                </ul>
             </article>
         </section>
     )
-  }
+}

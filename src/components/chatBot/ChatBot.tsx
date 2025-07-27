@@ -14,6 +14,7 @@ function ChatBot(): JSX.Element {
     const [pendingAIMessage, setPendingAIMessage] = useState<MessageProps[]>([]);
 
     const lastRespondedIndex = useRef(-1);
+    const chatWindow = useRef<HTMLDivElement>(null);
 
     const handleTextInput = (e: React.ChangeEvent<HTMLInputElement>): void => setUserMessage(e.target.value);
 
@@ -41,7 +42,7 @@ function ChatBot(): JSX.Element {
         });
 
         setPendingAIMessage([]);
-        
+
         return;
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -76,26 +77,24 @@ function ChatBot(): JSX.Element {
                 if (!("newChatHistory" in data || "reply" in data))
                     throw new Error("Invalid response. Failed to fetch response from chatbot.")
 
-                console.log(data.reply)
-                console.log(data.newChatHistory)
-
                 // const aiMessage:MessageProps[] = [{ name: "bot", content: "How do you do sir" }];
                 // const newChatHistory: MessageProps[] = [ ...aiMessage ];
-        
-                
                 setPendingAIMessage(data.reply);
                 return;
             } catch (error) {
                 if (error instanceof Error)
                     console.error(error.message);
-                
                 return;
             }
         }
 
         sendAIMessage();
-        
 
+        if (chatWindow.current)     {
+            chatWindow.current.scrollTop = chatWindow.current.scrollHeight;
+        }
+
+        
     }, [messageHistory]);
 
 
@@ -108,7 +107,7 @@ function ChatBot(): JSX.Element {
                         <h2>Chat Bot</h2>
                         <button className={styles.closeBtn} onClick={() => setChatBotOpen(false)}>X</button>
                     </div>
-                    <div className={styles.chatBoxBody}>
+                    <div className={styles.chatBoxBody} ref={chatWindow} >
                         {messageHistory.map((message, index) => (
                             <Message key={index} role={message.role} content={message.content} />
                         ))}

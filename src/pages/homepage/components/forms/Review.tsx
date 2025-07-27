@@ -26,7 +26,7 @@ export default function Review() {
             })
         }
     }
-
+    
     const handleClickStar = (ratingNumber: number): void => {
         if (userReview.rating === ratingNumber && userReview.rating !== 0) {
             setUserReview(prevUserReview => ({...prevUserReview, rating: 0}))
@@ -34,7 +34,6 @@ export default function Review() {
             setUserReview(prevUserReview => ({...prevUserReview, rating: ratingNumber}))
         }
     }
-
 
     return (
         <form className={styles.formField} >
@@ -44,11 +43,20 @@ export default function Review() {
                 <input className={styles.formInput} type="text" name="name" id="name" value={userReview.name} onChange={handleKeyStroke} />
                 <label className={styles.formLabel} htmlFor="review">Rating: </label>
                 <div>
-                    <ImStarFull color={(userReview.rating >= 1 || starHovered >= 1) ? 'gold' : ''} onClick={() => handleClickStar(1)} onMouseEnter={() => setStarHovered(1)} onMouseLeave={() => setStarHovered(0)} />
-                    <ImStarFull color={(userReview.rating >= 2 || starHovered >= 2) ? 'gold' : ''} onClick={() => handleClickStar(2)} onMouseEnter={() => setStarHovered(2)} onMouseLeave={() => setStarHovered(0)} />
-                    <ImStarFull color={(userReview.rating >= 3 || starHovered >= 3) ? 'gold' : ''} onClick={() => handleClickStar(3)} onMouseEnter={() => setStarHovered(3)} onMouseLeave={() => setStarHovered(0)} />
-                    <ImStarFull color={(userReview.rating >= 4 || starHovered >= 4) ? 'gold' : ''} onClick={() => handleClickStar(4)} onMouseEnter={() => setStarHovered(4)} onMouseLeave={() => setStarHovered(0)} />
-                    <ImStarFull color={(userReview.rating >= 5 || starHovered >= 5) ? 'gold' : ''} onClick={() => handleClickStar(5)} onMouseEnter={() => setStarHovered(5)} onMouseLeave={() => setStarHovered(0)} />
+                {Array.from({ length: 5 }).map((_, index) => (
+                    <ImStarFull
+                        key={index}
+                        color={(userReview.rating >= index + 1 || starHovered >= index + 1) ? 'gold' : ''}
+                        onClick={() => handleClickStar(index + 1)}
+                        onMouseEnter={() => setStarHovered(index + 1)}
+                        onMouseLeave={() => setStarHovered(0)}
+                    />
+                ))}                    
+                {/* <ImStarFull color={(userReview.rating >= 1 || starHovered >= 1) ? 'gold' : ''} onClick={() => handleClickStar(1)} onMouseEnter={() => setStarHovered(1)} onMouseLeave={() => setStarHovered(0)} />
+                <ImStarFull color={(userReview.rating >= 2 || starHovered >= 2) ? 'gold' : ''} onClick={() => handleClickStar(2)} onMouseEnter={() => setStarHovered(2)} onMouseLeave={() => setStarHovered(0)} />
+                <ImStarFull color={(userReview.rating >= 3 || starHovered >= 3) ? 'gold' : ''} onClick={() => handleClickStar(3)} onMouseEnter={() => setStarHovered(3)} onMouseLeave={() => setStarHovered(0)} />
+                <ImStarFull color={(userReview.rating >= 4 || starHovered >= 4) ? 'gold' : ''} onClick={() => handleClickStar(4)} onMouseEnter={() => setStarHovered(4)} onMouseLeave={() => setStarHovered(0)} />
+                <ImStarFull color={(userReview.rating >= 5 || starHovered >= 5) ? 'gold' : ''} onClick={() => handleClickStar(5)} onMouseEnter={() => setStarHovered(5)} onMouseLeave={() => setStarHovered(0)} /> */}
                 </div>
                 <input type="text" hidden />
                 <label className={styles.formLabel} htmlFor="review">Review: </label>
@@ -56,5 +64,5 @@ export default function Review() {
                 <button className={styles.formBtn} >Leave Review!</button>
             </fieldset>
         </form>
-  )
+    )
 }
