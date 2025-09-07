@@ -36,3 +36,7 @@
     background-color: cyan;
     color: black;
 }
+
+.messageBox > span {
+    font-style: italic;
+}

@@ -1,12 +1,21 @@
 import styles from "./ReviewFeed.module.css";
 import { ImStarFull } from "react-icons/im";
 
-function ReviewItem() {
+export interface ReviewItemProps {
+    id: string;
+    username: string;
+    role?: string;
+    rating: number;
+    message: string;
+}
+
+function ReviewItem(reviewItem: ReviewItemProps) {
     return (
         <div className={styles.reviewItem} >
-            <p><span>Name:</span> Brendon | Senior Developer</p>
-            <p className={styles.ratingStar} ><span>Rating:&nbsp;</span> 5<ImStarFull className={styles.star} color='gold' /></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            <p><span>Name: </span>{reviewItem.username}</p>
+            {reviewItem.role && <p><span>Role: </span>{reviewItem.role}</p>}
+            <p className={styles.ratingStar} ><span>Rating:&nbsp;</span> {reviewItem.rating}<ImStarFull className={styles.star} color='gold' /></p>
+            <p>{reviewItem.message}</p>
         </div>
     )
 }

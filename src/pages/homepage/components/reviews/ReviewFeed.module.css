@@ -34,3 +34,9 @@
     transition: 2s;
     rotate: y 180deg;
 }
+
+.noReviews {
+    border: 2px solid cyan;
+    padding: 20px;
+    font-size: 1.5rem;
+}
