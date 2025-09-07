@@ -100,7 +100,7 @@ function ChatBot(): JSX.Element {
             ? <button onClick={() => setChatBotOpen(true)} >CHAT</button>
             :   <div className={styles.chatBoxInnerContainer} >
                     <div className={styles.chatBoxHeader}>
-                        <h2>Chat Bot</h2>
+                        <h2>Brendon's Assistant</h2>
                         <button className={styles.closeBtn} onClick={() => setChatBotOpen(false)}>X</button>
                     </div>
                     <div className={styles.chatBoxBody} ref={chatWindow} >
