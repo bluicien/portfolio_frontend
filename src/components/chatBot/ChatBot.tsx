@@ -1,16 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './ChatBot.module.css';
-import Message from './Message';
+import Message, { SystemMessage } from './Message';
 import { MessageProps } from './types.ts';
 import queueNewMessages from '../../hooks/queueNewMessages.tsx';
 
-const mockData: MessageProps[] = []
 
 function ChatBot(): JSX.Element {
 
     const [chatBotOpen, setChatBotOpen] = useState(false);
     const [userMessage, setUserMessage] = useState<string>("");
-    const [messageHistory, setMessageHistory] = useState<MessageProps[]>(mockData);
+    const [messageHistory, setMessageHistory] = useState<MessageProps[]>([]);
     const [pendingAIMessage, setPendingAIMessage] = useState<MessageProps[]>([]);
 
     const lastRespondedIndex = useRef(-1);
@@ -77,8 +76,6 @@ function ChatBot(): JSX.Element {
                 if (!("newChatHistory" in data || "reply" in data))
                     throw new Error("Invalid response. Failed to fetch response from chatbot.")
 
-                // const aiMessage:MessageProps[] = [{ name: "bot", content: "How do you do sir" }];
-                // const newChatHistory: MessageProps[] = [ ...aiMessage ];
                 setPendingAIMessage(data.reply);
                 return;
             } catch (error) {
@@ -97,20 +94,23 @@ function ChatBot(): JSX.Element {
         
     }, [messageHistory]);
 
-
     return (
         <section className={`${chatBotOpen ? styles.chatBoxContainer : styles.chatBoxContainerClosed}`} >
             {!chatBotOpen
             ? <button onClick={() => setChatBotOpen(true)} >CHAT</button>
             :   <div className={styles.chatBoxInnerContainer} >
                     <div className={styles.chatBoxHeader}>
-                        <h2>Chat Bot</h2>
+                        <h2>Brendon's Assistant</h2>
                         <button className={styles.closeBtn} onClick={() => setChatBotOpen(false)}>X</button>
                     </div>
                     <div className={styles.chatBoxBody} ref={chatWindow} >
-                        {messageHistory.map((message, index) => (
+
+                        {messageHistory.length > 0 
+                        ? messageHistory.map((message, index) => (
                             <Message key={index} role={message.role} content={message.content} />
-                        ))}
+                        ))
+                        : <SystemMessage />
+                        }
                     </div>
                     <form className={styles.chatBoxInput} onSubmit={handleSendUserMessage}>
                         <input type="text" placeholder="Type a message..." value={userMessage} onChange={handleTextInput} />
