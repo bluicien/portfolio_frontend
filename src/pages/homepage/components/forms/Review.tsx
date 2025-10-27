@@ -39,7 +39,6 @@ export default function Review() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
-        console.log(userReview);
         try {
             const response = await fetch(`${import.meta.env.VITE_BACKEND_API}/api/feedback`, {
                 method: 'POST',
@@ -49,11 +48,9 @@ export default function Review() {
                 body: JSON.stringify(userReview),
             });
             if (!response.ok) {
-                console.log(response)
                 throw new Error('Network response was not ok');
             }
-            const data = await response.json();
-            console.log('Success:', data);
+
             alert('Thank you for your review!');
             setUserReview({ username: "", rating: 0, message: "", position: "", company: "" });
         }
