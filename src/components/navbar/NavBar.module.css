@@ -28,6 +28,11 @@
     text-shadow: 0 0 10px cyan;
 }
 
+.navIcon:hover {
+    color: white;
+    text-shadow: 0 0 10px black;
+}
+
 .navGroup {
     display: flex;
     align-items: center;

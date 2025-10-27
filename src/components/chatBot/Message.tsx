@@ -7,7 +7,7 @@ function Message(props: MessageProps): JSX.Element {
 
     return (
         <article className={`${styles.messageContainer} ${role === 'user' ? styles.userMessage : styles.botMessage}`} >
-            <p className={styles.messageSender} >{role}</p>
+            <p className={styles.messageSender} >{role === 'model' ? 'Assistant' : role }</p>
             <p className={styles.messageBox} >{content}</p>
         </article>
     )
@@ -17,7 +17,7 @@ export function SystemMessage(): JSX.Element {
 
     return (
         <article className={`${styles.messageContainer} ${styles.botMessage}`} >
-            <p className={styles.messageSender} >model</p>
+            <p className={styles.messageSender} >Assistant</p>
             <p className={styles.messageBox} >
                 Hi! I am Brendon's personal assistant.👋 
                 <br />
