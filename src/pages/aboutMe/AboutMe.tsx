@@ -38,10 +38,11 @@ export default function AboutMe(): JSX.Element {
             <article>
                 <h2>introduction</h2>
                 <p>
-                    Enthusiastic IT professional transitioning into software development with a solid foundation 
-                    in full-stack technologies. Leveraging self-study, certifications, and hands-on projects to 
-                    deliver value in an entry-level developer role. I am passionate about coding, problem
-                    solving, and innovative tech solutions. 
+                    Software Developer with three years of hands-on experience in full-stack 
+                    development, including a recent internship building a scalable SaaS platform from 
+                    the ground up. Skilled in modern web technologies, cloud-native architectures, and 
+                    collaborative development. I am passionate about solving real-world problems 
+                    through clean code, innovation, and continuous learning. 
                 </p>
             </article>
             <hr />
@@ -58,6 +59,18 @@ export default function AboutMe(): JSX.Element {
             </article>
             <article>
                 <h2>work history</h2>
+                <div className={styles.workListing}>
+                    <h5>2025</h5>
+                    <h4>Software Engineer Intern - <span className={styles.courseProvider}>velis ltd</span></h4>
+                    <ul>
+                        <li>Collaborating in a lean, cross-functional team to architect and deliver a scalable multi-service SaaS platform</li>
+                        <li>Designed and implemented secure database schema optimized for modular service integration</li>
+                        <li>Built robust authentication flows using OAuth2, including token lifecycle management and permission scoping</li>
+                        <li>Architected multi-tenant infrastructure with a security-first approach, enabling isolated service orchestration</li>
+                        <li>Contributed to product decisions by translating technical constraints into stakeholder-friendly insights</li>
+                        <li>Authored documentations for handover and future developer onboarding</li>
+                    </ul>
+                </div>
                 <div className={styles.workListing}>
                     <h5>2021 - Present</h5>
                     <h4>Customer & Operations Support - <span className={styles.courseProvider}>computer dynamics ltd</span></h4>
@@ -77,6 +90,7 @@ export default function AboutMe(): JSX.Element {
                     <ul>
                         <li>Collaborated in a team using GitHub and Jira to develop full stack web applications</li>
                         <li>Developed AI solutions to meet client requirement and enhance UX</li>
+                        <li>Worked in a lean Agile team and developed a working SaaS solution for my internship</li>
                     </ul>
                 </div>
 

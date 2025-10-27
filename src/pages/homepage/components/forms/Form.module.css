@@ -44,3 +44,8 @@
     color: cyan;
     border-color: cyan;
 }
+
+.inlineInputs {
+    display: flex;
+    gap: 10px;
+}
