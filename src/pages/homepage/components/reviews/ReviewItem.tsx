@@ -1,15 +1,11 @@
 import styles from "./ReviewFeed.module.css";
 import { ImStarFull } from "react-icons/im";
+import { ReviewItemProps } from "./types.ts";
 
-export interface ReviewItemProps {
-    id: string;
-    username: string;
-    role?: string;
-    rating: number;
-    message: string;
-}
 
 function ReviewItem(reviewItem: ReviewItemProps) {
+
+
     return (
         <div className={styles.reviewItem} >
             <p><span>Name: </span>{reviewItem.username}</p>
