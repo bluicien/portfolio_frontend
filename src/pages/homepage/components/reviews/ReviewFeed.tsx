@@ -15,6 +15,7 @@ function ReviewFeed() {
                     throw new Error('Network response was not ok');
                 }
                 const data: ReviewItemProps[] = await response.json();
+                console.log(data)
                 setReviews(data);
             } catch (error) {
                 console.error('Error fetching reviews:', error);
@@ -29,7 +30,7 @@ function ReviewFeed() {
             <div className={styles.reviewList} >
                 {reviews.length === 0 && <p className={styles.noReviews}>Sorry! This feature is still in development 😊</p>}
                 {reviews.map((review) => (
-                    <ReviewItem key={review.id} {...review} />
+                    <ReviewItem key={review.userId} {...review} />
                 ))}
             </div>
         </section>

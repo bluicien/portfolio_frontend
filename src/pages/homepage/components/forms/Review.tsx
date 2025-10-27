@@ -4,16 +4,15 @@ import { useState } from 'react';
 import { ImStarFull } from "react-icons/im";
 
 type Message = {
-    name: string;
+    username: string;
     company?: string;
     position?: string;
-    ipAddress?: string;
     rating: number;
-    review: string;
+    message: string;
 }
 
 export default function Review() {
-    const [ userReview, setUserReview ] = useState<Message>({ name: "", rating: 0, review: "", position: "", company: "" });
+    const [ userReview, setUserReview ] = useState<Message>({ username: "", rating: 0, message: "", position: "", company: "" });
     const [ starHovered, setStarHovered ] = useState<number>(0)
 
     const handleKeyStroke = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
@@ -50,12 +49,13 @@ export default function Review() {
                 body: JSON.stringify(userReview),
             });
             if (!response.ok) {
+                console.log(response)
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
             console.log('Success:', data);
             alert('Thank you for your review!');
-            setUserReview({ name: "", rating: 0, review: "", position: "", company: "" });
+            setUserReview({ username: "", rating: 0, message: "", position: "", company: "" });
         }
         catch (error) {
             console.error('Error submitting review:', error);
@@ -67,8 +67,8 @@ export default function Review() {
         <form className={styles.formField} onSubmit={handleSubmit} >
             <fieldset className={styles.field} >
                 <legend className={styles.formTitle} >Review</legend>
-                <label className={styles.formLabel} htmlFor="name">Name* : </label>
-                <input className={styles.formInput} type="text" name="name" id="name" value={userReview.name} onChange={handleKeyStroke} />
+                <label className={styles.formLabel} htmlFor="username">Name* : </label>
+                <input className={styles.formInput} type="text" name="username" id="username" value={userReview.username} onChange={handleKeyStroke} />
                 <div className={styles.inlineInputs} >
                     <div className={styles.inlineFields} >
                         <label className={styles.formLabel} htmlFor="company">Company : </label>
@@ -92,8 +92,8 @@ export default function Review() {
                 ))}
                 </div>
                 <input type="text" hidden />
-                <label className={styles.formLabel} htmlFor="review">Review : </label>
-                <textarea className={styles.textBox} name="review" id="review" value={userReview.review} onChange={handleKeyStroke} ></textarea><br />
+                <label className={styles.formLabel} htmlFor="message">Review : </label>
+                <textarea className={styles.textBox} name="message" id="message" value={userReview.message} onChange={handleKeyStroke} ></textarea><br />
                 <button className={styles.formBtn} >Leave Review!</button>
             </fieldset>
         </form>

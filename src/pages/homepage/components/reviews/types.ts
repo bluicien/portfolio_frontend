@@ -1,5 +1,5 @@
 export interface ReviewItemProps {
-    id: string;
+    userId: string;
     username: string;
     company?: string;
     role?: string;
