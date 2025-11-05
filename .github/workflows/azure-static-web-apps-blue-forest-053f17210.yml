@@ -47,6 +47,7 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
          VITE_CHAT_API: ${{ secrets.VITE_CHAT_API }}
+         VITE_BACKEND_API: ${{ secrets.VITE_BACKEND_API }}
          VITE_MY_NAME: ${{ secrets.VITE_MY_NAME }}
          VITE_PUBLIC_KEY: ${{ secrets.VITE_PUBLIC_KEY }}
          VITE_SERVICE_ID: ${{ secrets.VITE_SERVICE_ID }}
@@ -62,3 +63,4 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           action: "close"
+
