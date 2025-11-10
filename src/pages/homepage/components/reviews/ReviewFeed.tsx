@@ -27,7 +27,7 @@ function ReviewFeed() {
         <section>
             <h3 className={styles.sectionTitle} >Reviews</h3>
             <div className={styles.reviewList} >
-                {reviews.length === 0 && <p className={styles.noReviews}>Sorry! This feature is still in development 😊</p>}
+                {reviews.length === 0 && <p className={styles.noReviews}>Sorry, no reviews yet. If you know me, please consider leaving a review.</p>}
                 {reviews.map((review) => (
                     <ReviewItem key={review.userId} {...review} />
                 ))}

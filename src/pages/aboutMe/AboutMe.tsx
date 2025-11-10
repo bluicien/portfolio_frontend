@@ -85,7 +85,7 @@ export default function AboutMe(): JSX.Element {
             <article>
                 <h2>education</h2>
                 <div className={styles.educationListing} >
-                    <h5>2024 - Present</h5>
+                    <h5>2024 - 2025</h5>
                     <h4>Diploma in Software Engineering - <span className={styles.courseProvider} >Mission Ready HQ</span></h4>
                     <ul>
                         <li>Collaborated in a team using GitHub and Jira to develop full stack web applications</li>

@@ -34,9 +34,9 @@ export default function Homepage() {
                     <div className={styles.redirectLinks} >
                         <Link to={"/about-me"} ><button className={styles.aboutmeBtn} >About Me</button></Link>
                         <div className={styles.socialMediaBtnGroup} >
-                            <Link className={styles.socialBtn} to="https://www.facebook.com/brendon.luicien" ><FaFacebook size="2rem" /></Link>
-                            <Link className={styles.socialBtn} to="https://www.linkedin.com/in/bluicien-bl2" ><ImLinkedin size="2rem" /></Link>
-                            <Link className={styles.socialBtn} to="https://github.com/bluicien" ><ImGithub size="2rem" /></Link>
+                            <Link className={styles.socialBtn} target='blank' to="https://www.facebook.com/brendon.luicien" ><FaFacebook size="2rem" /></Link>
+                            <Link className={styles.socialBtn} target='blank' to="https://www.linkedin.com/in/bluicien-bl2" ><ImLinkedin size="2rem" /></Link>
+                            <Link className={styles.socialBtn} target='blank' to="https://github.com/bluicien" ><ImGithub size="2rem" /></Link>
                         </div>
                     </div>
                 </div>
