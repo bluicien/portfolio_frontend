@@ -3,7 +3,12 @@ import emailjs from '@emailjs/browser';
 
 import styles from './Form.module.css';
 
-export default function Contact(): JSX.Element {
+interface ModalProps {
+    modalType: string;
+    message: string;
+}
+
+export default function Contact({handleModalData}: { handleModalData: (data: ModalProps) => void }) {
     
     type Message = {
         name: string;
@@ -20,28 +25,31 @@ export default function Contact(): JSX.Element {
 
     const [ userMessage, setUserMessage ] = useState<Message>({ name: "", email: "", message: "" })
 
-    const handleFormSendEmail = (e: React.FormEvent<HTMLFormElement>): void => {
-
+    const handleFormSendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault(); // Prevent default form behavior.
 
-        const { VITE_SERVICE_ID, VITE_TEMPLATE_ID, VITE_PUBLIC_KEY, VITE_MY_NAME } = import.meta.env; // Import env variables.
+        try {
+            const { VITE_SERVICE_ID, VITE_TEMPLATE_ID, VITE_PUBLIC_KEY, VITE_MY_NAME } = import.meta.env; // Import env variables.
 
-        // Create template params object to send email
-        const templateParams: TemplateParameters = {
-            user_name: userMessage.name,
-            user_email: userMessage.email,
-            my_name: VITE_MY_NAME,
-            message: userMessage.message
+            // Create template params object to send email
+            const templateParams: TemplateParameters = {
+                user_name: userMessage.name,
+                user_email: userMessage.email,
+                my_name: VITE_MY_NAME,
+                message: userMessage.message
+            }
+    
+            // Send email via emailjs
+            emailjs.send(VITE_SERVICE_ID, VITE_TEMPLATE_ID, templateParams, VITE_PUBLIC_KEY)
+            .then(() => {
+                handleModalData({modalType: "success", message: "Email was sent successfully!"})
+                setUserMessage({ name: "", email: "", message: "" }); // Reset form values to empty
+            })
+            .catch(() => handleModalData({modalType: "error", message: "Failed to send email."}));
+        } catch (error) {
+            console.error("Failed to send email", error)
+            handleModalData({modalType: "error", message: "Failed to send email!"})
         }
-
-        // Send email via emailjs
-        console.log(VITE_PUBLIC_KEY)
-        emailjs.send(VITE_SERVICE_ID, VITE_TEMPLATE_ID, templateParams, VITE_PUBLIC_KEY)
-        .then(() => {
-            console.log("Email was sent successfully!");
-            setUserMessage({ name: "", email: "", message: "" }); // Reset form values to empty
-        })
-        .catch(() => console.log("Failed to send email."));
     }
 
 
@@ -65,11 +73,11 @@ export default function Contact(): JSX.Element {
             <fieldset className={styles.field} >
                 <legend className={styles.formTitle} >Contact Me</legend>
                 <label className={styles.formLabel} htmlFor="name">Name: </label>
-                <input className={styles.formInput} type="text" name="name" id="name" value={userMessage.name} onChange={handleKeyStroke} />
+                <input className={styles.formInput} required type="text" name="name" id="name" value={userMessage.name} onChange={handleKeyStroke} />
                 <label className={styles.formLabel} htmlFor="name">Email: </label>
-                <input className={styles.formInput} type="text" name="email" id="email" value={userMessage.email} onChange={handleKeyStroke} />
+                <input className={styles.formInput} required type="text" name="email" id="email" value={userMessage.email} onChange={handleKeyStroke} />
                 <label className={styles.formLabel} htmlFor="message">Message: </label>
-                <textarea className={styles.textBox} name="message" id="message" value={userMessage.message} onChange={handleKeyStroke} ></textarea><br />
+                <textarea className={styles.textBox} required name="message" id="message" value={userMessage.message} onChange={handleKeyStroke} ></textarea><br />
                 <button className={styles.formBtn} >Send Message!</button>
             </fieldset>
         </form>
