@@ -70,7 +70,7 @@ export default function Review({handleModalData}: { handleModalData: (data: Moda
             <fieldset className={styles.field} >
                 <legend className={styles.formTitle} >Review</legend>
                 <label className={styles.formLabel} htmlFor="username">Name* : </label>
-                <input className={styles.formInput} type="text" name="username" id="username" value={userReview.username} onChange={handleKeyStroke} />
+                <input className={styles.formInput} required type="text" name="username" id="username" value={userReview.username} onChange={handleKeyStroke} />
                 <div className={styles.inlineInputs} >
                     <div className={styles.inlineFields} >
                         <label className={styles.formLabel} htmlFor="company">Company : </label>
