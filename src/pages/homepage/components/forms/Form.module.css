@@ -24,6 +24,7 @@
     font-size: 1.3rem;
     padding: 5px;
     width: 100%;
+    resize: vertical;
 }
 
 .formBtn {

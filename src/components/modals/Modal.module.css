@@ -1,0 +1,65 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0); /* transparent black */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 5;
+  transition: background-color 500ms ease;
+}
+
+.backdropOpen {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+  background-color: #303030;
+  width: fit-content;
+  height: fit-content;
+  border: 2px solid cyan;
+  border-radius: 5px;
+  padding: 10px;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.modalOpen {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.closeContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeContainer > button {
+  border: 2px solid white;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  font-weight: 900;
+}
+
+.closeContainer > button:hover {
+  background-color: red;
+}
+
+.notificationModal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0px 20px 10px;
+}
+
+.notificationModal > p {
+  font-size: 20px;
+  font-weight: bold;
+}

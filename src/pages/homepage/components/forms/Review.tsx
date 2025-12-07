@@ -11,7 +11,12 @@ type Message = {
     message: string;
 }
 
-export default function Review() {
+interface ModalProps {
+    modalType: string;
+    message: string;
+}
+
+export default function Review({handleModalData}: { handleModalData: (data: ModalProps) => void }) {
     const [ userReview, setUserReview ] = useState<Message>({ username: "", rating: 0, message: "", position: "", company: "" });
     const [ starHovered, setStarHovered ] = useState<number>(0)
 
@@ -51,12 +56,12 @@ export default function Review() {
                 throw new Error('Network response was not ok');
             }
 
-            alert('Thank you for your review!');
+            handleModalData({modalType: "success", message: "Thank you for your review!"});
             setUserReview({ username: "", rating: 0, message: "", position: "", company: "" });
         }
         catch (error) {
             console.error('Error submitting review:', error);
-            alert('There was an error submitting your review. Please try again later.');
+            handleModalData({modalType: "error", message: "There was an error submitting your review. Please try again later."})
         }
     }
 
@@ -65,7 +70,7 @@ export default function Review() {
             <fieldset className={styles.field} >
                 <legend className={styles.formTitle} >Review</legend>
                 <label className={styles.formLabel} htmlFor="username">Name* : </label>
-                <input className={styles.formInput} type="text" name="username" id="username" value={userReview.username} onChange={handleKeyStroke} />
+                <input className={styles.formInput} required type="text" name="username" id="username" value={userReview.username} onChange={handleKeyStroke} />
                 <div className={styles.inlineInputs} >
                     <div className={styles.inlineFields} >
                         <label className={styles.formLabel} htmlFor="company">Company : </label>
